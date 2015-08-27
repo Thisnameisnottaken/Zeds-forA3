@@ -6,6 +6,9 @@ also thx to corvobrok & Chuma from whom i did some rewrite on script/.pbo
 3 merge MPMissions into the root of arma III 
 
 Add the 2 lines to init.sqf
+[] execVM "zombie\conf.sqf";
+[] execVM "Tzombie\Tconf.sqf";
+
 
 Well what do u get ,2 different types of Zeds
 1 the old arma2 walking/running , edit the /zombie/conf.sqf  for own likeing
