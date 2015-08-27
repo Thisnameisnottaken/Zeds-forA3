@@ -3,7 +3,7 @@
 	author: corvobrok
 */
 TZedface = ["infected1","Infected2","zombi","zomboy"] call BIS_fnc_selectRandom;  // empty means normal faces most players get confused when it start slapping 2-3 hits means pain
-Tzombielimit = 3;  //zombies respawn afterdead, but for each unit in zone, 7 zombies will spawn
+Tzombielimit = 3;  // total zombies spawn
 Tzombiedamage = 50;   //% of the damage of a zombie for a punch  , yes 2x and your gone
 Tzombierun = 1;		 //set 1 if zombie must run, 0 if they must walk
 Trespawntime = 180;  //time for respawn killed zombies
