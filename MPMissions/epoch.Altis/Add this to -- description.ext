@@ -1,0 +1,25 @@
+
+
+class CfgSounds
+{
+   sounds[] = {zomb1,zomb2,zomb3};	
+	
+	class zomb1
+	{
+		name = "zomb1";
+		sound[] = {"\sounds\zomb1.ogg", 0.9 , 1, 250};
+		titles[] = {};
+	};
+	class zomb2
+	{
+		name = "zomb2";
+		sound[] = {"\sounds\zomb2.ogg", 0.9 , 1, 200};
+		titles[] = {};
+	};
+	class zomb3
+	{
+		name = "zomb3";
+		sound[] = {"\sounds\zomb3.ogg", 0.9 , 1, 300};
+		titles[] = {};
+	};
+};
