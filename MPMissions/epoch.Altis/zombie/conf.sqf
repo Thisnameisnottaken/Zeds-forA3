@@ -2,11 +2,11 @@
 	file: configurations.sqf
 	author: corvobrok
 */
-Zedface = ["zombi","zomboy"] call BIS_fnc_selectRandom;  // "infected1","Infected2","zombi","zomboy" 
-zombielimit = 9;    //zombies respawn afterdead, but for each unit in zone, 7 zombies will spawn
-zombiedamage = 15;  // % of the damage of a zombie for a punch
+Zedface = ["zombi","zomboy","infected1","Infected2","zombi","zomboy"] call BIS_fnc_selectRandom;  // randomize and favor the buttugly  
+zombielimit = 14;    //zombies respawn afterdead, but for each unit in zone, 7 zombies will spawn
+zombiedamage = 25;  // % of the damage of a zombie for a punch
 zombierun = 1;    	//set 1 if zombie must run, 0 if they must walk
-respawntime = 180;	//time for respawn killed zombies
+respawntime = 120;	//time for respawn killed zombies
 zdebugging = 0;     //show the debug stats; enable with 1
 
 //----------Only marker spawn---------------------------------------
