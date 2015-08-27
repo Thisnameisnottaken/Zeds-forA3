@@ -6,6 +6,7 @@ also thx to corvobrok & Chuma from whom i did some rewrite on script/.pbo
 3 merge MPMissions into the root of arma III 
 
 Add the 2 lines to init.sqf
+
 [] execVM "zombie\conf.sqf";
 [] execVM "Tzombie\Tconf.sqf";
 
