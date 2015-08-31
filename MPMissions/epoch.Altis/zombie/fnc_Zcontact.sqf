@@ -1,3 +1,7 @@
+/*
+	file: fn_zcontact.sqf
+	author: corvobrok
+*/
 _suoni =  ["zomb1","zomb2","zomb3"];
 _zombie = _this select 0;
 		_zombie setFace Zedface;
@@ -51,7 +55,7 @@ while {alive _zombie} do {
 			{
 				_zombie switchMove "AwopPercMstpSgthWnonDnon_end";
 					if(!inSafeZone) then {
-					_target setDamage (damage _target + (zombiedamage/10000));  // lesser damage 
+					_target setDamage (damage _target + (zombiedamage/10000));  // less damage 
 					};
 				_zombie say3d "zomb2";
 				sleep 1.5;
