@@ -1,7 +1,3 @@
-/*
-	file: fn_zcontact.sqf
-	author: corvobrok
-*/
 _suoni =  ["zomb1","zomb2","zomb3"];
 _zombie = _this select 0;
 		_zombie setFace Zedface;
@@ -11,24 +7,24 @@ _zombie = _this select 0;
 		_zombie setBehaviour "CARELESS";
 		_zombie disableConversation true;
 		_zombie addRating -10000;
-		zarray=zarray+[_zombie];
+		zarray = zarray + [_zombie];
 		if (zombierun < 1) then {_zombie setdamage 0.5;};
-
+		
 while {alive _zombie} do {
-	_unitsaround = _zombie nearEntities ["Man", 500];
+	_unitsaround = nearestObjects [_zombie, ["MAN","CAR"], 500];
 	_targets = [];
 	
 	{
-		if (group _x != groupZMB && side _x != SideZMB) then
+		if (group _x != groupZMB && side _x != SideZMB OR (_x iskindof "CAR") AND (count (crew _x)) != 0) then
 		{
-			_targets = _targets +[_x];
+			_targets = _targets + [_x];
 		};
 		sleep 0.01;
 	}foreach _unitsaround;
 	
 	_ntargets = count _targets;
 	
-	if (_ntargets> 0) then 
+	if (_ntargets > 0) then 
 	{
 		_target = player;
 		{
@@ -39,8 +35,8 @@ while {alive _zombie} do {
 			sleep 0.01;
 		}foreach _targets;
 	
-		if (_zombie distance getposATL _target < 160) then {_zombie doMove getposATL _target;};
-		if (_zombie distance getposATL _target < 1.5 && alive _target  && _target != _zombie) then 
+		if (_zombie distance getposATL _target < 150) then {_zombie doMove getposATL _target;};
+		if (_zombie distance getposATL _target < 1.5 && alive _target && _target != _zombie && _target iskindof "MAN") then 
 		{
 			_zombie switchMove "AwopPercMstpSgthWnonDnon_end";
 				if(!inSafeZone) then {
@@ -48,8 +44,20 @@ while {alive _zombie} do {
 				};
 			_zombie say3d "zomb2";
 			sleep 1.5;
+		}
+		else 
+		{
+			if (_zombie distance getposATL _target < 6 && alive _target && _target != _zombie && _target iskindof "CAR") then 
+			{
+				_zombie switchMove "AwopPercMstpSgthWnonDnon_end";
+					if(!inSafeZone) then {
+					_target setDamage (damage _target + (zombiedamage/10000));  // lesser damage 
+					};
+				_zombie say3d "zomb2";
+				sleep 1.5;
+			};
 		};
-	};
+	};	
 	if (!isDedicated) then
 	{
 		if (player distance position _zombie > 400) then
